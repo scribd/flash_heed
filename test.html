@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <style>
+        .container {
+            height: 1000px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 90px;
+            left: 50px;
+            width: 700px;
+            height: 800px;
+            background: #ddd;
+            z-index: 10000;
+            border: 1px solid #888;
+            padding: 25px;
+            font-family: Helvetica;
+        }    
+        
+        .overlay h1 {
+            padding: 0;
+            margin :0;
+        }
+
+        .flash {
+             z-index: 1;
+             position: relative;
+             left: 600px;
+         }
+         
+         .flash div {
+             margin-bottom: 15px;
+         }
+        </style>
+        
+         <script src="flash_heed.js" type="text/javascript"></script>
+    </head>
+    
+    <body>
+        <div class="overlay"><h1>This element should be on top of the ads.</h1></div>
+        
+        <div class="flash" id="flash">
+            <!-- Example Ad with missing wmode param -->
+            <div>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="300" height="250">
+                    <param name="movie" value="http://pagead2.googlesyndication.com/pagead/imgad?id=CP_z1_zK-sXbyAEQrAIY-gEyCP5jsJ3U6g-L&amp;clickTAG=http://googleads.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DBT4H28ozUTKK9IYHsjQSO2pTfCPum0tAB26PWqxnj9_OsQ5CEbBABGAEg0KSCCjgAUJPYpY0GYMn2-IbIo6AZsgEOd3d3LnNjcmliZC5jb226AQozMDB4MjUwX2pzyAEE2gEtaHR0cDovL3d3dy5zY3JpYmQuY29tL2RvYy8yMjU5OTAzNC9BbnQtQ29sb255uAIYwAIByAKbnaUWqAMB6APuCegDrgHoA0P1AwAAAAQ%26num%3D1%26sig%3DAGiWqtzHtvQArIfwQ9_zWtLL8kT2K92meA%26client%3Dca-pub-7291399211842501%26adurl%3Dhttp://www.parentdish.com/%253Fncid%253Dbannadusbbab00000007">
+                    <param name="quality" value="high">
+                    <param name="AllowScriptAccess" value="never">
+                    <embed src="http://pagead2.googlesyndication.com/pagead/imgad?id=CP_z1_zK-sXbyAEQrAIY-gEyCP5jsJ3U6g-L&amp;clickTAG=http://googleads.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DBT4H28ozUTKK9IYHsjQSO2pTfCPum0tAB26PWqxnj9_OsQ5CEbBABGAEg0KSCCjgAUJPYpY0GYMn2-IbIo6AZsgEOd3d3LnNjcmliZC5jb226AQozMDB4MjUwX2pzyAEE2gEtaHR0cDovL3d3dy5zY3JpYmQuY29tL2RvYy8yMjU5OTAzNC9BbnQtQ29sb255uAIYwAIByAKbnaUWqAMB6APuCegDrgHoA0P1AwAAAAQ%26num%3D1%26sig%3DAGiWqtzHtvQArIfwQ9_zWtLL8kT2K92meA%26client%3Dca-pub-7291399211842501%26adurl%3Dhttp://www.parentdish.com/%253Fncid%253Dbannadusbbab00000007" width="300" height="250" type="application/x-shockwave-flash" allowscriptaccess="never" pluginspage="http://www.macromedia.com/go/getflashplayer">
+                </object>
+            </div>
+            
+            <!-- Example Ad with explicit wmode param set to window -->
+            <div>
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="300" height="250">
+                    <param name="movie" value="http://pagead2.googlesyndication.com/pagead/imgad?id=CP_z1_zK-sXbyAEQrAIY-gEyCP5jsJ3U6g-L&amp;clickTAG=http://googleads.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DBT4H28ozUTKK9IYHsjQSO2pTfCPum0tAB26PWqxnj9_OsQ5CEbBABGAEg0KSCCjgAUJPYpY0GYMn2-IbIo6AZsgEOd3d3LnNjcmliZC5jb226AQozMDB4MjUwX2pzyAEE2gEtaHR0cDovL3d3dy5zY3JpYmQuY29tL2RvYy8yMjU5OTAzNC9BbnQtQ29sb255uAIYwAIByAKbnaUWqAMB6APuCegDrgHoA0P1AwAAAAQ%26num%3D1%26sig%3DAGiWqtzHtvQArIfwQ9_zWtLL8kT2K92meA%26client%3Dca-pub-7291399211842501%26adurl%3Dhttp://www.parentdish.com/%253Fncid%253Dbannadusbbab00000007">
+                    <param name="quality" value="high">
+                    <param name="AllowScriptAccess" value="never">
+                    <param name="wmode" value="window">
+                    <embed src="http://pagead2.googlesyndication.com/pagead/imgad?id=CP_z1_zK-sXbyAEQrAIY-gEyCP5jsJ3U6g-L&amp;clickTAG=http://googleads.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DBT4H28ozUTKK9IYHsjQSO2pTfCPum0tAB26PWqxnj9_OsQ5CEbBABGAEg0KSCCjgAUJPYpY0GYMn2-IbIo6AZsgEOd3d3LnNjcmliZC5jb226AQozMDB4MjUwX2pzyAEE2gEtaHR0cDovL3d3dy5zY3JpYmQuY29tL2RvYy8yMjU5OTAzNC9BbnQtQ29sb255uAIYwAIByAKbnaUWqAMB6APuCegDrgHoA0P1AwAAAAQ%26num%3D1%26sig%3DAGiWqtzHtvQArIfwQ9_zWtLL8kT2K92meA%26client%3Dca-pub-7291399211842501%26adurl%3Dhttp://www.parentdish.com/%253Fncid%253Dbannadusbbab00000007" width="300" height="250" type="application/x-shockwave-flash" allowscriptaccess="never" pluginspage="http://www.macromedia.com/go/getflashplayer">
+                </object>
+            </div>
+        </div>
+        
+        <script>
+            FlashHeed.heed();
+        </script>
+    </body>
+</html>
