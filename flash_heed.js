@@ -18,13 +18,13 @@ var FlashHeed = (function(window) {
     };
     
     var heed = function(el) {
-        if(el === undefined) var el = document;
+        if(el === undefined || el === null) var el = document;
         
         
         var objects = el.getElementsByTagName('object');
         var len = objects.length;
         var i;
-
+        
         for(i = 0; i < len; i++) {
             var o = objects[i];
             var params = o.getElementsByTagName('param');
@@ -44,30 +44,29 @@ var FlashHeed = (function(window) {
             }
 
             // Handle param tags (for IE)
-            var found = false;
             var correct_wmode_found = false;
+            var incorrect_wmode_found = false;
 
             for(var j = 0; j < params_length; j++) {
                 if(params[j].name === 'wmode') {
                     if(/transparent/i.test(params[j].value) || /opaque/i.test(params[j].value)) {
                         // an existing wmode with "transparent" or "opaque" is found
-                        // don't need to alter this object tag
                         correct_wmode_found = true;
+                    } else {
+                        incorrect_wmode_found = true;
                     }
                 }
             }
 
-            if(!correct_wmode_found) {
+            if(!correct_wmode_found || incorrect_wmode_found) {
                 var html = o.outerHTML;
                 var nx = o.nextSibling, pn = o.parentNode;
 
-                if(!found) {
-                    // Do a string replacement for a window param that IE injects be default to the innerhtml
-                    html = gsub(html, /<param name="wmode" value="window">/i, '');
+                // Do a string replacement for a window param that IE injects be default to the innerhtml
+                html = gsub(html, /<param name="wmode".*?>/i, '');
 
-                    // Add the correct transparent wmode param
-                    html = gsub(html, /<\/object>/i, '<PARAM NAME="WMode" VALUE="Transparent"></object>');
-                }
+                // Add the correct transparent wmode param
+                html = gsub(html, /<\/object>/i, '<PARAM NAME="WMode" VALUE="Transparent"></object>');
 
                 // Totally remove the object tag from the dom
                 pn.removeChild(o);
